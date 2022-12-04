@@ -1,0 +1,31 @@
+body {
+    background-color: black;
+}
+.container {
+    /* background-color: grey; */
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    border: 2px solid greenyellow;
+    box-shadow: inset 0 0 15px greenyellow;
+}
+nav {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav button {
+    color: greenyellow;
+    background-color: black;
+    border: 2px solid greenyellow;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px greenyellow;
+}
+
+#array-bars {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
