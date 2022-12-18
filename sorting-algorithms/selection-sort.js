@@ -24,19 +24,27 @@ function animate(arr, i, j) {
         });
 }
 
-async function selection(arr) {
+async function selection(arr, time, order) {
     for (let i = 0; i < arr.length; i++) {
       let lowest = i
-      for (let j = i + 1; j < arr.length; j++) {
-        if (arr[j] < arr[lowest]) {
-          lowest = j
+      if (order === 'asc') {
+        for (let j = i + 1; j < arr.length; j++) {
+          if (arr[j] < arr[lowest]) {
+            lowest = j
+          }
+        }
+      }else {
+        for (let j = i + 1; j < arr.length; j++) {
+          if (arr[j] > arr[lowest]) {
+            lowest = j
+          }
         }
       }
       if (lowest !== i) {
         // Swap
         [arr[i], arr[lowest]] = [arr[lowest], arr[i]]
         await animate(arr, i, lowest);
-        await sleep(500);
+        await sleep(time);
       }
     }
   }

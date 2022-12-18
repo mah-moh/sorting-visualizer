@@ -25,15 +25,24 @@ function animate(arr, i, j) {
 }
 
 
-let bubble = async(arr) => {
+let bubble = async(arr, time, order) => {
     let len = arr.length;
     for (let i = 0; i < len; i++) {
         for (let j = 0; j < len; j++) {
-            if (arr[j] > arr[j + 1]) {
-                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
-                await animate(arr, j, j + 1);
-                await sleep(200);
+            if (order === 'asc') {
+                if (arr[j] > arr[j + 1]) {
+                    [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+                    await animate(arr, j, j + 1);
+                    await sleep(time);
+                }
+            }else {
+                if (arr[j] < arr[j + 1]) {
+                    [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+                    await animate(arr, j, j + 1);
+                    await sleep(time);
+                }
             }
+            
         }
     }
     return arr;
