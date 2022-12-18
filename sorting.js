@@ -42,6 +42,7 @@ $(function() {
     $('#array-size-btn').on('click', function() {
         var input_size = $('#array-size').val();
         localStorage.setItem("size", input_size);
+        window.location.reload();
         generate_array();
     })
 })
